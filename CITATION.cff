@@ -8,6 +8,7 @@ authors:
     affiliation: "Independent Researcher, Tampa, FL, USA"
     orcid: "https://orcid.org/0009-0001-8957-2384"
 version: "0.4.7"
+doi: 10.5281/zenodo.24170358
 license: MIT
 repository-code: "https://github.com/mpashapu/mapa11y"
 keywords:
