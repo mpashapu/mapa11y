@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>3.x-style map: keys work only under the mouse</title>
+<style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px}
+#map:focus-visible{outline:4px solid #0050c0;outline-offset:-4px} #map_root{position:relative;width:100%;height:100%}</style></head>
+<body><a href="#map">Skip to Map</a>
+<div id="map" class="map" tabindex="0" aria-label="Map Area"><div id="map_root" class="esriMapContainer">
+  <canvas width="900" height="520"></canvas></div></div>
+<script src="mockmap.js"></script><script>MockMap(document.getElementById("map"),{keyboard:true,hoverOnly:true})</script>
+</body></html>

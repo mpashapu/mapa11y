@@ -1,0 +1,31 @@
+order,app_id,app_family,T01_splash_keyboard,T02_map_reachable,T03_tabs_to_map,T04_focus_visible,T05_pan_keys,T06_zoom_keys,T07_no_trap,T08_feature_info_keyboard,T09_sr_map_name,T10_sr_popup_read,T11_text_alternative,T12_legend_not_color_only,T13_controls_contrast,T14_overall_equivalent,minutes_spent
+1,A100,Web AppBuilder,pass,pass,4.0,pass,fail,fail,pass,pass,fail,pass,fail,fail,pass,partly,50.0
+2,A186,Experience Builder,pass,pass,12.0,pass,pass,pass,pass,pass,fail,pass,pass,pass,fail,partly,30.0
+3,A152,Web AppBuilder,pass,pass,7.0,pass,pass,fail,pass,na,fail,na,na,na,,no,15.0
+4,A267,Experience Builder,na,pass,1.0,pass,pass,pass,pass,fail,fail,na,fail,pass,,partly,15.0
+5,A273,Experience Builder,pass,pass,13.0,pass,pass,pass,pass,fail,fail,na,fail,pass,,partly,15.0
+6,A338,Web AppBuilder,na,pass,2.0,pass,fail,fail,pass,pass,fail,fail,pass,pass,,partly,15.0
+7,A342,Instant Apps,na,pass,4.0,pass,pass,pass,pass,pass,fail,fail,fail,pass,pass,partly,10.0
+8,A068,Dashboards,na,pass,3.0,pass,fail,pass,pass,pass,fail,fail,fail,pass,pass,partly,10.0
+9,A057,Other configurable app,pass,pass,12.0,pass,pass,pass,pass,na,fail,na,na,na,pass,no,10.0
+10,A113,Story map,na,pass,2.0,pass,pass,pass,pass,fail,fail,na,fail,na,pass,no,10.0
+11,A298,Experience Builder,fail,pass,,pass,pass,pass,pass,pass,fail,fail,fail,pass,pass,no,10.0
+12,A014,Experience Builder,fail,pass,10.0,pass,pass,pass,pass,pass,fail,fail,fail,fail,pass,no,10.0
+13,A130,Experience Builder,na,pass,65.0,pass,pass,pass,pass,pass,fail,fail,fail,pass,,no,10.0
+14,A373,Web AppBuilder,na,pass,1.0,pass,fail,pass,pass,na,fail,na,na,na,pass,no,10.0
+15,A286,Custom / hosted elsewhere,na,pass,20.0,pass,pass,pass,fail,pass,fail,fail,fail,na,pass,no,10.0
+16,A114,Web AppBuilder,pass,pass,4.0,pass,pass,fail,fail,pass,fail,fail,fail,pass,pass,no,10.0
+17,A346,Dashboards,na,pass,9.0,pass,fail,fail,pass,fail,fail,na,fail,na,,no,10.0
+18,A235,Instant Apps,na,pass,6.0,pass,fail,pass,pass,pass,fail,fail,fail,na,fail,no,10.0
+19,A189,Experience Builder,na,pass,10.0,pass,fail,pass,pass,pass,fail,fail,fail,na,pass,no,10.0
+20,A008,Instant Apps,na,pass,1.0,pass,pass,pass,pass,fail,fail,na,fail,pass,,no,10.0
+21,A228,Web AppBuilder,,,,,,,,,,,,,,,
+22,A208,Experience Builder,,,,,,,,,,,,,,,
+23,A351,Web AppBuilder,,,,,,,,,,,,,,,
+24,A047,Instant Apps,,,,,,,,,,,,,,,
+25,A252,Instant Apps,,,,,,,,,,,,,,,
+26,A121,Web AppBuilder,,,,,,,,,,,,,,,
+27,A232,Instant Apps,,,,,,,,,,,,,,,
+28,A306,Dashboards,na,pass,11.0,pass,pass,pass,pass,fail,fail,na,fail,na,,no,10.0
+29,A004,Web AppBuilder,,,,,,,,,,,,,,,
+30,A176,Experience Builder,,,,,,,,,,,,,,,

@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Viewer that asks to sign in later</title>
+<style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus-visible{outline:4px solid #c00;outline-offset:-4px}
+.dijitDialog{position:fixed;top:120px;left:200px;background:#fff;border:1px solid #333;padding:20px;width:440px;z-index:9}</style></head><body>
+<h1>Public map</h1>
+<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county">
+  <canvas width="900" height="520"></canvas></div>
+<script src="mockmap.js"></script><script>
+MockMap(document.getElementById("map"),{keyboard:true});
+const servers = ["gis.example-county.gov (Parcels_Secured)", "gis.example-county.gov (Hydrants_Secured)"];
+let box = null, started = false;
+function prompt(i) {
+  if (i >= servers.length) return;
+  box = document.createElement("div"); box.className = "dijitDialog esriSignInDialog";
+  box.innerHTML = '<p>Please sign in to access the item on ' + servers[i] + '</p>' +
+    '<label>User name <input type="text" class="u"></label><br><label>Password <input type="password"></label><br>' +
+    '<label><input type="checkbox" class="keep"> Keep me signed in</label><br>' +
+    '<button class="ok">OK</button> <button class="cancel">Cancel</button>';
+  box.querySelector(".ok").onclick = () => { location.href = "login_page.html"; };          // must never happen
+  box.querySelector(".keep").onchange = () => { location.href = "login_page.html"; };       // must never happen
+  const me = box;
+  box.querySelector(".cancel").onclick = () => { me.remove(); box = null; setTimeout(() => prompt(i + 1), 500); };
+  document.body.appendChild(box); box.querySelector(".u").focus();
+}
+document.addEventListener("keydown", e => {
+  if (e.key !== "Tab") return;
+  if (!started) { started = true; e.preventDefault(); prompt(0); return; }
+  if (!box) return;
+  e.preventDefault();                       // focus stays inside the open sign-in box
+  const f = [...box.querySelectorAll("input,button")];
+  const i = f.indexOf(document.activeElement);
+  f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+}, true);
+</script></body></html>

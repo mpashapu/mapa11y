@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Dashboard with keyboard zone layers</title>
+<style>body{font-family:sans-serif;margin:0}</style></head><body>
+<x-panel id="p1" kind="header"></x-panel><x-panel id="p2" kind="list"></x-panel><x-panel id="p3" kind="map"></x-panel>
+<script src="mockmap.js"></script><script>
+// Real ArcGIS Dashboards structure: in each panel's shadow root, an EMPTY focusable "tab-zone" layer is laid over the
+// panel's content (not around it). Tab moves zone to zone; Enter on a zone moves focus into the content.
+customElements.define("x-panel", class extends HTMLElement {
+  connectedCallback() {
+    const r = this.attachShadow({mode: "open"}), kind = this.getAttribute("kind");
+    const content = kind === "map"
+      ? '<div class="maplibregl-map" id="m" tabindex="-1" role="application" aria-label="Inspection results map" style="position:relative;width:900px;height:520px"><canvas width="900" height="520"></canvas></div>'
+      : (kind === "header" ? '<h1 style="margin:0;padding:8px">Inspections dashboard</h1>' : '<ul style="margin:0;padding:8px 24px"><li>Restaurant A</li><li>Restaurant B</li></ul>');
+    r.innerHTML = '<div style="position:relative;display:inline-block;margin:6px">' + content +
+                  '<div class="tab-zone" tabindex="0" style="position:absolute;inset:0;z-index:2"></div></div>';
+    const zone = r.querySelector(".tab-zone"), map = r.querySelector("#m");
+    if (map) {
+      MockMap(map, {keyboard: true});
+      zone.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); zone.style.pointerEvents = "none"; map.focus(); } });
+    }
+  }
+});
+</script></body></html>

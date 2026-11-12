@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>App whose toolbar appears late</title><style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus,#map:focus-visible{outline:4px solid #c00;outline-offset:-4px} .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:9} .ov .box{background:#fff;padding:24px;width:520px}</style></head><body><div id="bar"></div>
+<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county"><canvas width="900" height="520"></canvas></div><script src="mockmap.js"></script><script>MockMap(document.getElementById("map"),{keyboard:true});
+// the app adds its toolbar buttons one by one while it is still loading (at 3 s, 6 s and 9 s)
+["Search","Layers","Print"].forEach((t,k)=>setTimeout(()=>{const b=document.createElement("button");b.textContent=t;document.getElementById("bar").appendChild(b);},3000*(k+1)));
+</script></body></html>

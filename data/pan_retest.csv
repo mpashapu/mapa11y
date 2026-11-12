@@ -1,0 +1,13 @@
+retest_no,order,app_id,enter_needed,pan_pointer_off,plus_key_zoom_pointer_off,pan_pointer_over,retested_on
+1,7,A342,no,pass,pass,pass,2026-11-12
+2,3,A152,no,fail,fail,fail,2026-11-12
+3,17,A346,yes,pass,pass,pass,2026-11-12
+4,1,A100,no,fail,fail,pass,2026-11-12
+5,19,A189,no,pass,pass,pass,2026-11-12
+6,28,A306,yes,pass,pass,pass,2026-11-12
+7,16,A114,no,fail,fail,pass,2026-11-12
+8,6,A338,no,fail,fail,pass,2026-11-12
+9,8,A068,yes,pass,pass,pass,2026-11-12
+10,12,A014,no,pass,pass,pass,2026-11-12
+11,18,A235,no,pass,pass,pass,2026-11-12
+12,14,A373,no,fail,fail,pass,2026-11-12

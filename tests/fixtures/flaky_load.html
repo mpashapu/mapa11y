@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>App that fails to load the first time</title><style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus-visible{outline:4px solid #c00;outline-offset:-4px} .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:9} .ov .box{background:#fff;padding:24px;width:520px}</style></head><body>
+<div><button>Search</button><button>Layers</button></div><div id="slot"><p>Loading…</p></div>
+<script src="mockmap.js"></script><script>
+if (sessionStorage.getItem("triedOnce")) {
+  document.getElementById("slot").innerHTML = '<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county"><canvas width="900" height="520"></canvas></div>';
+  MockMap(document.getElementById("map"),{keyboard:true});
+} else { sessionStorage.setItem("triedOnce", "1"); }   // first load: the map service does not answer
+</script></body></html>

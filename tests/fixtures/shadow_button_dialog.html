@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Welcome box with a web-component button</title><style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus,#map:focus-visible{outline:4px solid #c00;outline-offset:-4px} .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:9} .ov .box{background:#fff;padding:24px;width:520px}</style></head><body>
+<div class="ov" id="ov"><div class="box" role="dialog" aria-modal="true"><h2>Public records viewer</h2>
+<x-button id="go">Acknowledge &amp; Launch Viewer</x-button></div></div>
+<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county"><canvas width="900" height="520"></canvas></div><script src="mockmap.js"></script><script>MockMap(document.getElementById("map"),{keyboard:true});
+customElements.define("x-button", class extends HTMLElement { constructor(){ super(); this.attachShadow({mode:"open"}).innerHTML = "<button><slot></slot></button>"; } });
+document.getElementById("go").addEventListener("click",()=>document.getElementById("ov").remove());
+</script></body></html>

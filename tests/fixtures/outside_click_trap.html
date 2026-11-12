@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Disclaimer closed only by clicking outside</title><style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus,#map:focus-visible{outline:4px solid #c00;outline-offset:-4px} .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:9} .ov .box{background:#fff;padding:24px;width:520px}</style></head><body>
+<div class="ov" id="ov"><div class="box" role="dialog" aria-modal="true"><h2>Disclaimer</h2>
+<p>I agree to the above terms and conditions. Then click anywhere outside of window. Thank you.</p><input type="checkbox"></div></div>
+<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county"><canvas width="900" height="520"></canvas></div><script src="mockmap.js"></script><script>MockMap(document.getElementById("map"),{keyboard:true});function trap(box){document.addEventListener("keydown",e=>{if(e.key!=="Tab"||!document.body.contains(box))return;e.preventDefault();
+const f=[...box.querySelectorAll("a[href],button,input,[tabindex]")].filter(x=>!x.disabled&&x.tabIndex>=0);if(!f.length)return;
+const i=f.indexOf(document.activeElement);f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();},true);}
+const ov=document.getElementById("ov"); trap(ov);
+ov.addEventListener("click",e=>{if(e.target===ov)ov.remove();});   // mouse only
+</script></body></html>

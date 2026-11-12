@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Dashboard whose map is not in the Tab order</title><style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus,#map:focus-visible{outline:4px solid #c00;outline-offset:-4px} .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:9} .ov .box{background:#fff;padding:24px;width:520px}</style></head><body>
+<button>Filter</button><button>Reset</button><button>Export</button>
+<div id="map" class="maplibregl-map" role="application" aria-label="Incidents map"><canvas width="900" height="520"></canvas></div>
+<script src="mockmap.js"></script><script>MockMap(document.getElementById("map"),{keyboard:true});</script></body></html>

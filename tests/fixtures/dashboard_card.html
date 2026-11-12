@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Dashboard with a map card</title>
+<style>body{font-family:sans-serif;margin:0;display:flex;gap:10px;padding:10px}.card{border:1px solid #888;padding:6px}
+.card:focus-visible{outline:3px solid #06c}.esri-view{position:relative;width:700px;height:400px}
+.esri-view-surface{width:100%;height:100%}.esri-view-surface:focus-visible{outline:4px solid #c00;outline-offset:-4px}</style></head>
+<body>
+<div class="card" tabindex="0" aria-label="Open tickets">Open: 284</div>
+<div class="card" tabindex="0" aria-label="Tickets by status">Chart</div>
+<div class="card" id="mapcard" tabindex="0" aria-label="Map element. Press Enter to interact."><h2>Ticket locations</h2>
+  <div class="esri-view"><div class="esri-view-surface" role="application" tabindex="-1" aria-label="Ticket locations map">
+    <canvas width="700" height="400"></canvas></div></div></div>
+<script src="mockmap.js"></script><script>
+const surf = document.querySelector(".esri-view-surface");
+MockMap(surf,{keyboard:true});
+document.getElementById("mapcard").addEventListener("keydown", e => {
+  if (e.key === "Enter" && e.target.id === "mapcard") { surf.tabIndex = 0; surf.focus(); }
+});
+</script></body></html>

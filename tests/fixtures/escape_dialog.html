@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Viewer with icon-only close</title><style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus-visible{outline:4px solid #c00;outline-offset:-4px} .ov{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:9} .ov .box{background:#fff;padding:24px;width:520px}</style></head><body>
+<div class="ov" id="ov"><div class="box" role="dialog" aria-modal="true"><h2>Welcome to the parcel viewer</h2>
+<p>Search an address to begin.</p><button class="esri-icon-close" id="x"><svg width="16" height="16"><path d="M2 2L14 14M14 2L2 14" stroke="#000"/></svg></button></div></div>
+<h1>Public map</h1>
+<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county">
+  <canvas width="900" height="520"></canvas></div>
+<script src="mockmap.js"></script><script>MockMap(document.getElementById("map"),{keyboard:true});function trap(box){document.addEventListener("keydown",e=>{if(e.key!=="Tab"||!document.body.contains(box))return;e.preventDefault();
+const f=[...box.querySelectorAll("a[href],button,input,[tabindex]")].filter(x=>!x.disabled&&x.tabIndex>=0);if(!f.length)return;
+const i=f.indexOf(document.activeElement);f[(i+(e.shiftKey?-1:1)+f.length)%f.length].focus();},true);}
+const ov=document.getElementById("ov"); trap(ov);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&document.body.contains(ov))ov.remove();});
+</script></body></html>

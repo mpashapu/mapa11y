@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "MapA11y: map-aware accessibility testing for public web maps"
+type: software
+authors:
+  - family-names: Pashapu
+    given-names: Malla Reddy
+    affiliation: "Independent Researcher, Tampa, FL, USA"
+    orcid: "https://orcid.org/0009-0001-8957-2384"
+version: "0.4.7"
+license: MIT
+repository-code: "https://github.com/mpashapu/mapa11y"
+keywords:
+  - web accessibility
+  - web maps
+  - GIS
+  - WCAG
+  - ADA Title II
+  - automated accessibility testing

@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Parks map (splash)</title><style>body{font-family:sans-serif;margin:0;color:#111;background:#fff} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus-visible{outline:5px solid #c00000;outline-offset:-5px} button{font-size:18px;min-width:32px}</style><style>#splash{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9}#splash div{background:#fff;padding:30px;width:500px}</style></head><body>
+<div id="splash" role="dialog" aria-modal="true" aria-labelledby="dt"><div><h2 id="dt">Disclaimer</h2><p>This map is for information only.</p><button id="agree">I Agree</button></div></div>
+<header><h1>City Parks</h1><a href="#parks">Skip to park list</a></header>
+<main>
+<div id="map" class="maplibregl-map" tabindex="0" role="application"
+     aria-label="Map of 4 city parks. Use arrow keys to pan and plus or minus to zoom." aria-describedby="mapdesc">
+  <canvas width="900" height="520"></canvas>
+  <div style="position:absolute;top:30px;left:30px">
+    <button class="maplibregl-ctrl-zoom-in" data-zoom="in" aria-label="Zoom in">+</button>
+    <button class="maplibregl-ctrl-zoom-out" data-zoom="out" aria-label="Zoom out">&minus;</button>
+  </div>
+</div>
+<p id="mapdesc">Every park shown on the map is listed in the table below.</p>
+<table id="parks"><caption>Parks</caption>
+<tr><th scope="col">Park</th><th scope="col">Address</th></tr>
+<tr><td>Bayfront Park</td><td>301 Main St</td></tr><tr><td>River Park</td><td>12 River Rd</td></tr>
+<tr><td>Hill Park</td><td>88 Hill Ave</td></tr><tr><td>Lake Park</td><td>5 Lake Dr</td></tr></table>
+</main>
+<script src="mockmap.js"></script><script>MockMap(document.getElementById("map"),{keyboard:true});document.getElementById("agree").onclick=function(){document.getElementById("splash").remove()};</script></body></html>

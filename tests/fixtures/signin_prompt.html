@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Public viewer with secured layers</title>
+<style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus-visible{outline:4px solid #c00;outline-offset:-4px}
+.esri-identity-modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:9}
+.esri-identity-modal .box{background:#fff;padding:24px;width:480px}</style></head><body>
+<h1>Public map</h1><div><button>Search</button><button>Layers</button><button>Legend</button></div>
+<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county">
+  <canvas width="900" height="520"></canvas></div>
+<script src="mockmap.js"></script><script>
+MockMap(document.getElementById("map"),{keyboard:true});
+const servers = ["https://gis.example-county.gov/server (Secured parcels)", "https://maps.example-state.gov/portal (Utility lines)"];
+function prompt(i) {
+  if (i >= servers.length) return;
+  const m = document.createElement("div"); m.className = "esri-identity-modal";
+  m.innerHTML = '<div class="box" role="dialog" aria-modal="true"><h2>Sign in</h2><p>Please sign in to access the item on ' + servers[i] + '</p>' +
+    '<label>Username <input type="text"></label><br><label>Password <input type="password"></label><br>' +
+    '<button class="signin">Sign In</button> <button class="cancel">Cancel</button></div>';
+  m.querySelector(".signin").onclick = () => { location.href = "login_page.html"; };   // must never happen
+  m.querySelector(".cancel").onclick = () => { m.remove(); setTimeout(() => prompt(i + 1), 1000); };
+  document.body.appendChild(m);
+}
+setTimeout(() => prompt(0), 500);
+</script></body></html>

@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Map where Enter on the surface starts a selection mode</title>
+<style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px}
+#surf{width:100%;height:100%} #surf:focus-visible{outline:4px solid #c00;outline-offset:-4px}</style></head><body>
+<h1>Public map</h1><div><button>Search</button><button>Layers</button></div>
+<!-- like ArcGIS 4.x/5.x: the map container is not focusable; the focusable surface is an inner element covering it -->
+<div id="map" class="maplibregl-map"><div id="surf" tabindex="0" role="application" aria-label="Map"><canvas width="900" height="520"></canvas></div></div>
+<script src="mockmap.js"></script><script>
+// Enter on the focused surface starts a selection mode in which arrow and +/- keys no longer move the map.
+// A keyboard user does not press Enter on a map they just reached, so the tool must not either.
+const map = document.getElementById("map"); let selecting = false;
+map.addEventListener("keydown", e => {
+  if (e.key === "Enter") selecting = true;
+  if (selecting && (/^Arrow/.test(e.key) || e.key === "+" || e.key === "-")) { e.preventDefault(); e.stopImmediatePropagation(); }
+}, true);
+MockMap(map, {keyboard: true});
+</script></body></html>

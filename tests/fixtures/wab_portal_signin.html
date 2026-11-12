@@ -1,0 +1,24 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Web AppBuilder app asking to sign in to the portal</title>
+<style>body{font-family:sans-serif;margin:0} #map{position:relative;width:900px;height:520px;margin:10px} #map:focus-visible{outline:4px solid #c00;outline-offset:-4px}
+.dijitDialog{position:fixed;top:150px;left:300px;width:380px;background:#fff;border:1px solid #333;z-index:9}
+.dijitDialogTitleBar{background:#cde;padding:6px} .dijitDialogPaneContent{padding:12px} .dijitButtonNode{display:inline-block;border:1px solid #888;padding:3px 10px;margin:4px}</style></head>
+<body class="jimu-main-font"><div id="main-page"><div id="jimu-layout-manager"><div id="bar"></div>
+<div id="map" class="maplibregl-map" tabindex="0" role="application" aria-label="Parcel and zoning map of the county"><canvas width="900" height="520"></canvas></div></div></div>
+<div class="dijitDialog" id="dlg"><div class="dijitDialogTitleBar">Sign In <span class="dijitDialogCloseIcon" title="Cancel">x</span></div>
+<div class="dijitDialogPaneContent">Please sign in to https://gis.example-county.gov/portal.<br>
+<span class="dijitButtonNode" tabindex="0" id="ok">OK</span><span class="dijitButtonNode" tabindex="0" id="cancel">Cancel</span></div></div>
+<script>var jimuConfig = {loadingId: "main-loading", mainPageId: "main-page", layoutId: "jimu-layout-manager", mapId: "map"};</script>
+<script src="mockmap.js"></script><script>
+MockMap(document.getElementById("map"),{keyboard:true});
+const dlg = document.getElementById("dlg");
+function signIn() { location.href = "login_page.html"; }          // must never happen
+function cancel() {                                                  // app goes on without the secured content
+  dlg.remove();
+  document.getElementById("bar").innerHTML = '<button class="jimu-widget">Legend</button><button class="jimu-widget">Layer List</button>';
+}
+for (const [id, fn] of [["ok", signIn], ["cancel", cancel]]) {
+  const b = document.getElementById(id);
+  b.addEventListener("click", fn);
+  b.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); } });
+}
+</script></body></html>
